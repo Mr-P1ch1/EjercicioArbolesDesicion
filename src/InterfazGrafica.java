@@ -8,7 +8,7 @@ public class InterfazGrafica {
     private JComboBox<String> respuestaComboBox;
     private JButton enviarButton;
     private JTextArea resultadoTextArea;
-    private JButton reiniciarButton; // Nuevo botón para reiniciar
+    private JButton reiniciarButton;
 
     private ArbolDecision arbolDecision;
 
@@ -58,7 +58,7 @@ public class InterfazGrafica {
         }
     }
 
-    private void reiniciarJuego() { 
+    private void reiniciarJuego() {
         arbolDecision.reiniciar();
         actualizarPregunta();
         resultadoTextArea.setText("");
