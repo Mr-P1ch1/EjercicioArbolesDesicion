@@ -24,4 +24,4 @@ El proyecto consta de las siguientes clases principales:
 
 1. Clona el repositorio a tu máquina local:
    ```sh
-   git clone https://github.com/tuusuario/nombre-del-repositorio.git
+   git clone [https://github.com/alejandro001100/EjercicioArbolesDesicion/]
