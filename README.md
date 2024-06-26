@@ -17,7 +17,7 @@ El proyecto consta de las siguientes clases principales:
 
 ## Requisitos
 
-- JDK 8 o superior
+- JDK 11 o superior
 - Un entorno de desarrollo Java (Eclipse, IntelliJ IDEA, etc.)
 
 ## Cómo Ejecutar el Proyecto
