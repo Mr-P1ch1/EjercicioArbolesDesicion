@@ -3,7 +3,7 @@ public class ArbolDecision {
     private Nodo nodoActual;
 
     public ArbolDecision() {
-        construirArbol();
+        construirArbol(); // Construir el árbol de decisión
     }
 
     private void construirArbol() {
@@ -11,10 +11,10 @@ public class ArbolDecision {
         raiz = new Nodo("¿La gente mantiene este animal en la casa?");
 
         // Subárbol NO
-        Nodo no1 = new Nodo("¿Tiene rayas este animal?");
-        raiz.setNo(no1);
-        Nodo cebra = new Nodo(Animal.CEBRA);
-        no1.setSi(cebra);
+        Nodo no1 = new Nodo("¿Tiene rayas este animal?"); // Crear un nuevo nodo con una pregunta
+        raiz.setNo(no1); // Establecer el nodo como hijo izquierdo
+        Nodo cebra = new Nodo(Animal.CEBRA); // Crear un nuevo nodo con una respuesta
+        no1.setSi(cebra); // Establecer el nodo como hijo izquierdo
 
         Nodo no2 = new Nodo("¿Es un animal de granja?");
         no1.setNo(no2);
@@ -49,40 +49,40 @@ public class ArbolDecision {
         // Nodo inicial
         nodoActual = raiz;
     }
-
+// Método para obtener la pregunta actual
     public String getPreguntaActual() {
-        if (nodoActual != null && nodoActual.getPregunta() != null) {
-            return nodoActual.getPregunta();
+        if (nodoActual != null && nodoActual.getPregunta() != null) { // Verificar que el nodo actual no sea nulo
+            return nodoActual.getPregunta(); // Retornar la pregunta actual
         }
-        return null;
+        return null; // Retornar nulo si no hay pregunta
     }
 
-    public void responderSi() {
-        if (nodoActual != null) {
-            System.out.println("Pregunta: " + nodoActual.getPregunta() + " - Respuesta: Sí");
-            nodoActual = nodoActual.getSi();
-        }
-    }
-
-    public void responderNo() {
-        if (nodoActual != null) {
-            System.out.println("Pregunta: " + nodoActual.getPregunta() + " - Respuesta: No");
-            nodoActual = nodoActual.getNo();
+    public void responderSi() { // Método para responder "Sí"
+        if (nodoActual != null) {  // Verificar que el nodo actual no sea nulo
+            System.out.println("Pregunta: " + nodoActual.getPregunta() + " - Respuesta: Sí"); // Imprimir la pregunta y la respuesta
+            nodoActual = nodoActual.getSi(); // Cambiar al nodo siguiente
         }
     }
 
+    public void responderNo() { // Método para responder "No"
+        if (nodoActual != null) { // Verificar que el nodo actual no sea nulo
+            System.out.println("Pregunta: " + nodoActual.getPregunta() + " - Respuesta: No"); // Imprimir la pregunta y la respuesta
+            nodoActual = nodoActual.getNo(); // Cambiar al nodo siguiente
+        }
+    }
+    // Método para obtener el resultado
     public String getResultado() {
-        if (nodoActual != null && nodoActual.getRespuesta() != null) {
-            return "Es un(a) " + nodoActual.getRespuesta().getNombre() + ". " + nodoActual.getRespuesta().getDescripcion();
+        if (nodoActual != null && nodoActual.getRespuesta() != null) { // Verificar que el nodo actual no sea nulo
+            return "Es un(a) " + nodoActual.getRespuesta().getNombre() + ". " + nodoActual.getRespuesta().getDescripcion(); // Retornar el resultado
         }
         return null;
     }
-
+// Método para verificar si el juego ha terminado
     public boolean haTerminado() {
-        return nodoActual != null && nodoActual.getRespuesta() != null;
+        return nodoActual != null && nodoActual.getRespuesta() != null; // Verificar si el nodo actual no es nulo y si es una respuesta
     }
-
+// Método para reiniciar el juego
     public void reiniciar() {
-        nodoActual = raiz;
+        nodoActual = raiz; // Reiniciar el nodo actual
     }
 }

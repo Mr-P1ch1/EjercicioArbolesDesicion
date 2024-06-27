@@ -14,7 +14,7 @@ public class Animal {
     public String getDescripcion() {
         return descripcion;
     }
-
+// Lista de animales con descripciones
     public static final Animal CEBRA = new Animal("Cebra", "La cebra es un animal con rayas blancas y negras.");
     public static final Animal CABALLO = new Animal("Caballo", "El caballo es un animal grande que suele vivir en granjas.");
     public static final Animal LEON = new Animal("León", "El león es conocido como el rey de la selva.");

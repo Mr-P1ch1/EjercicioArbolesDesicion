@@ -10,19 +10,20 @@ public class InterfazGrafica {
     private JTextArea resultadoTextArea;
     private JButton reiniciarButton;
 
-    private ArbolDecision arbolDecision;
+    private ArbolDecision arbolDecision; // Instancia de la clase ArbolDecision
 
     public InterfazGrafica() {
-        arbolDecision = new ArbolDecision();
+        arbolDecision = new ArbolDecision(); // Inicialización de la instancia de la clase ArbolDecision
 
+        // Agregar elementos al ComboBox
         respuestaComboBox.addItem("Sí");
         respuestaComboBox.addItem("No");
 
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                procesarRespuesta();
-                actualizarPregunta();
+                procesarRespuesta(); // Acción del botón enviar
+                actualizarPregunta(); // Actualizar la pregunta
             }
         });
 
@@ -37,31 +38,33 @@ public class InterfazGrafica {
     }
 
     private void procesarRespuesta() {
-        String respuesta = (String) respuestaComboBox.getSelectedItem();
-        if (respuesta != null) {
-            if (respuesta.equals("Sí")) {
+        String respuesta = (String) respuestaComboBox.getSelectedItem(); // Obtener la respuesta seleccionada
+        if (respuesta != null) { // Verificar que la respuesta no sea nula
+            if (respuesta.equals("Sí")) { // Verificar si la respuesta es "Sí"
                 arbolDecision.responderSi();
-            } else {
+            } else { // Si la respuesta es "No"
                 arbolDecision.responderNo();
             }
         }
     }
-
+// Método para actualizar la pregunta
     private void actualizarPregunta() {
-        if (arbolDecision.haTerminado()) {
-            resultadoTextArea.setText(arbolDecision.getResultado());
-            preguntaLabel.setText("Fin del juego");
+        if (arbolDecision.haTerminado()) { // Verificar si el juego ha terminado
+            resultadoTextArea.setText(arbolDecision.getResultado()); // Mostrar el resultado
+            preguntaLabel.setText("Fin del juego"); // Mostrar mensaje de fin del juego
+            // Deshabilitar los componentes
             respuestaComboBox.setEnabled(false);
             enviarButton.setEnabled(false);
         } else {
-            preguntaLabel.setText(arbolDecision.getPreguntaActual());
+            preguntaLabel.setText(arbolDecision.getPreguntaActual());// Mostrar la pregunta actual
         }
     }
 
     private void reiniciarJuego() {
-        arbolDecision.reiniciar();
+        arbolDecision.reiniciar(); // Reiniciar el juego
         actualizarPregunta();
-        resultadoTextArea.setText("");
+        resultadoTextArea.setText(""); // Limpiar el área de texto
+        // Habilitar los componentes
         respuestaComboBox.setEnabled(true);
         enviarButton.setEnabled(true);
     }
